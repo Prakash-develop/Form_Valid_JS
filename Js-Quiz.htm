@@ -1,0 +1,72 @@
+<html>
+<head>
+<script type="text/javascript">
+var c = 0;
+var t;
+var timer_is_on=0;
+function timedCount()
+{
+if(c <= 10)
+{
+document.getElementById('txt').value=c;
+c = c+1;
+t = setTimeout("timedCount()",1000);
+}
+else
+{
+alert("Timed Out");
+timer_is_on=0;
+}
+}
+function doTimer()
+{
+if(!timer_is_on)
+{
+c = 0;
+timer_is_on = 1;
+timedCount();
+}
+}
+function validateQuiz()
+{
+var count=0;
+if(document.f.a1.value=='2')
+{
+count = count*1 + 1;
+}
+if(document.f.a2.value=='1')
+{
+count = count*1 + 1;
+}
+if(document.f.a3.value=='0')
+{
+count = count*1 + 1;
+}
+alert("you have answered "+count+" question(s) correctly");
+return true;
+}
+
+</script>
+</head>
+<body>
+<form name="f" onsubmit="return validateQuiz();">
+<input type="button" value="Start Quiz" onclick="doTimer()"/>
+<input readonly type="text" id = "txt" onfocus="this.blur();"size="2">
+<br><br><br>
+1. a=5, b=2 a=a+b-a; find a?
+<br>
+<input type ="text" id="a1" size="12">
+<br><br>
+2. a=5, b=2 c=a>b?1:0; find c?
+<br>
+<input type ="text" id="a2" size="12">
+<br><br>
+3. a=2, b=2 c=a>b?1:a==b?0:-1; find c?; find a?
+<br>
+<input type ="text" id="a3" size="12">
+<br><br>
+<input type="submit" value="Submit the quiz"/>
+</form>
+<p></p>
+</body>
+</html>

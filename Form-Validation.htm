@@ -1,0 +1,138 @@
+<html>
+	<head>
+		<title>Student Registration Form</title>
+		<script type="text/javascript">
+		function validate()
+		{
+			if(document.signup.fname.value=="")
+			{
+				alert("Please Enter First Name!");
+				return false;
+			}
+			if(document.signup.lname.value=="")
+			{
+				alert("Please Enter Last Name!");
+				return false;
+			}
+			if(document.signup.uname.value=="")
+			{
+				alert("Please Enter User Name!");
+				return false;
+			}
+			if(document.signup.pword1.value=="")
+			{
+				alert("Please Enter Password!");
+				return false;
+			}
+			if(document.signup.pword1.value.length<6)
+			{
+				alert("Please enter min 6 characters!");
+				return false;
+			}
+			if(document.signup.pword2.value=="")
+			{
+				alert("Please Enter Password again!");
+				return false;
+			}
+			if(document.signup.pword2.value!=document.signup.pword1.value)
+			{
+				alert("Password is mismatch. Re-enter password!");
+				return false;
+			}
+
+			var x=document.forms["signup"]["aemail"].value;
+			var atpos=x.indexOf("@");
+			var dotpos=x.lastIndexOf(".");
+			if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+  			{
+  				alert("Not a valid e-mail address");
+  				return false;
+  			}
+
+			alert("Details Entered Successfully");
+			display();
+			
+		}
+		function display()
+		{
+			document.writeln('<h2>'+"Details Entered..."+'</h2>');
+			document.writeln('<br/><font color="#0066FF">'+"First Name: "+'</font>'+document.signup.fname.value);
+			document.writeln('<br/><font color="#0066FF">'+"Last Name: "+'</font>'+document.signup.lname.value);
+			document.writeln('<br/><font color="#0066FF">'+"User Name: "+'</font>'+document.signup.uname.value);
+			document.writeln('<br/><font color="#0066FF">'+"Country: "+'</font>'+document.signup.country.value);
+			document.writeln('<br/><font color="#0066FF">'+"Alternate Email: "+'</font>'+document.signup.aemail.value);
+            return true;
+		}
+
+	
+		</script>
+</head>
+<body align="center" bgcolor="yellow" >
+<table width="100%" height="100%">
+<td colspan="2" width="15%">
+</td>
+<td colspan="1" bgcolor="#FFFFFF" width="70%" height="100%">
+	<h1 align="center"><font color="#0066FF">E-Mail</font></h1>
+	<h1 align="center"><font color="#0066FF">Signup</font></h1>
+		<form name="signup"  onSubmit="return validate()">
+		<font face="Verdana, Arial, Helvetica, sans-serif" color="#660000" size="2">
+		<p>
+&nbsp;&nbsp;
+*First Name:<input type="text" name="fname" size="20">
+		&nbsp;&nbsp;
+*Last Name:<input type="text" name="lname" size="20">
+</p>
+		<p style=" border:">
+&nbsp;&nbsp;
+*User Name:<input type="text" name="uname" size="20">@ymail.com
+</p>
+		<p style=" border:">
+&nbsp;&nbsp;
+*Password :&nbsp;<input type="password" name="pword1">(min 6 characters)
+</p>
+		<p style=" border:">
+&nbsp;&nbsp;
+*Confirm Password:<input type="password" name="pword2" size="20">
+</p>
+		<p>
+&nbsp;&nbsp;
+Gender: 
+<input type="radio" name="gen" value="male">Male
+			<input type="radio" name="gen" value="female">Female
+		</p>
+		<p>
+&nbsp;&nbsp;
+Country: 
+			<select name="country">
+				<option selected>Select Country</option>
+				<option name="country" value="india">India</option>
+				<option name="country" value="russia">Russia</option>
+				<option name="country" value="france">France</option>
+				<option name="country" value="italy">Italy</option>
+			</select>
+		</p>
+		<p>
+&nbsp;&nbsp;
+Language Known:
+<br/>
+		&nbsp;&nbsp;
+<input type="checkbox" name="lang" value="tamil">Tamil<br/>
+		&nbsp;&nbsp;
+<input type="checkbox" name="lang" value="english">English<br/>
+		&nbsp;&nbsp;
+<input type="checkbox" name="lang" value="hindi">Hindi<br/>
+		&nbsp;&nbsp;
+<input type="checkbox" name="lang" value="Malayalam">Malayalayam
+<br/>
+		</p>
+		<p style=" border:">&nbsp;&nbsp;Alternate Email:<input type="text" name="aemail" size="20"></p>
+		<p align="center"><input type="checkbox" name="agree" value="agree">I agree the terms and conditions</p>
+		<p align="center"><input type="submit" value="Submit">  <input type="Reset" value="Reset"></p>
+	</font>
+</form>
+</td>
+<td colspan="2" width="15%">
+</td>
+</table>
+</body>
+</html>
